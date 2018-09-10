@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <title>Mensajes!</title>
+  </head>
+
+  <header>
+    
+  </header>
+
+  <body>
+    <nav>
+      <ul class="nav nav-tabs bg-dark">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ data.previous_url }}">Previous</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ data.next_url }}">Next</a>
+        </li>
+      </ul>
+
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <form action="/" method="POST">
+            <div class="form-group">
+              <label for="message" class="bmd-label-floating">Ingrese su mensaje</label>
+              <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+          </form>
+        </div>
+        <div class="col-sm">
+          <h5>Mensajes</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">IP</th>
+                <th scope="col">Message</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for message in data.messages %}
+
+              <tr>
+                <th scope="row">{{message.id}}</th>
+                <td>{{message.ip}}</td>
+                <td>{{message.message}}</td>
+                <td>{{message.time}}</td>
+              </tr>
+               {% endfor %}
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+  </body>
+</html>
